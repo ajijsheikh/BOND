@@ -1,0 +1,44 @@
+{
+  "name": "bond",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "contract",
+    "api",
+    "web"
+  ],
+  "scripts": {
+    "compact": "npm run compact --workspace @bond/contract",
+    "build:contract": "npm run build --workspace @bond/contract",
+    "typecheck:contract": "npm run typecheck --workspace @bond/contract",
+    "test:contract": "npm run test --workspace @bond/contract",
+    "prepare:contract": "npm run build:dist --workspace @bond/contract",
+    "sync:zk-assets": "node ./scripts/sync-zk-assets.mjs",
+    "build:api": "npm run prepare:contract && npm run build --workspace @bond/api",
+    "typecheck:api": "npm run prepare:contract && npm run typecheck --workspace @bond/api",
+    "test:api": "npm run prepare:contract && npm run test --workspace @bond/api",
+    "dev": "npm run dev --workspace @bond/web",
+    "build": "npm run build --workspace @bond/web",
+    "build:pages": "npm run build:pages --workspace @bond/web",
+    "lint": "npm run lint --workspace @bond/web",
+    "typecheck:web": "npm run typecheck --workspace @bond/web",
+    "test:web": "npm run test --workspace @bond/web",
+    "test:run": "npm run test:run --workspace @bond/web",
+    "preview": "npm run preview --workspace @bond/web",
+    "typecheck": "npm run typecheck:web",
+    "test": "npm run test:web",
+    "typecheck:all": "npm run typecheck:contract && npm run typecheck:api && npm run typecheck:web",
+    "test:all": "npm run test:contract && npm run test:api && npm run test:web",
+    "local:up": "docker compose up -d",
+    "local:down": "docker compose down",
+    "local:ps": "docker compose ps",
+    "local:logs": "docker compose logs -f",
+    "local:proof": "docker compose up -d proof-server",
+    "deploy:local": "npm run prepare:contract && npm run build --workspace @bond/api && npm run deploy:local --workspace @bond/api",
+    "deploy:lace": "npm run prepare:contract && npm run sync:zk-assets && npm run build --workspace @bond/api && node ./scripts/print-lace-deploy.mjs"
+  },
+  "engines": {
+    "node": ">=22.13.0 <23"
+  }
+}

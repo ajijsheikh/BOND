@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+.yarn/
+.pnp.*
+
+# Compact / build outputs
+# contract/src/managed/ is tracked so Windows teammates can run prepare:contract
+# without the Compact compiler (regenerate via WSL `npm run compact` when source changes).
+contract/dist/
+**/dist/
+**/coverage/
+playwright-report/
+test-results/
+*.local
+*.tsbuildinfo
+
+# Local tooling / skills (installed per machine)
+.agents/
+.cursor/
+skills-lock.json
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+*.pem
+
+# Local undeployed deploy output (public address only; still machine-local)
+deployment.json
+deployment.preprod.json
+.preprod-seed.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Leftover workspace checkout artifacts from other branches
+# (tracked sources live on their feature branches)
