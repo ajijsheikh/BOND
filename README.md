@@ -4,7 +4,7 @@
 
 Bond demonstrates a DeFi authorization design for autonomous commerce: an owner delegates bounded purchasing power, an agent proposes a purchase, and a private gate decides whether that request may proceed without giving the agent unrestricted wallet access.
 
-The repository currently ships a complete, deterministic browser demo and a hardened Midnight Preprod wallet-connection boundary. The demo does **not** create a Midnight proof or transaction. Real capability, proof, receipt, and contract operations remain disabled until the independently owned core client is supplied and verified.
+The repository currently ships a complete and full deterministic browser demo and a hardened Midnight Preprod wallet-connection boundary. The demo does **not** create a Midnight proof or transaction. Real capability, proof, receipt, and contract operations remain disabled until the independently owned core client is supplied and verified.
 
 ![Bond landing page and private-gate message](docs/screenshots/ui-shell-desktop.png)
 
